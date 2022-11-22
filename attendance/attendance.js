@@ -1,23 +1,4 @@
-// trainer = [{ "firstName": "Alla", "lastName": "Ammaira", "Email": "alaa@gmail.com", "confirmEmail": "alaa@gmail.com", "mobile": "0778899665", "Password": "Aa@123456789", "confirmPassword": "Aa@123456789", "last_taken_atten":"21/11/2022"}]
-// const today = new Date();
-// const yyyy = today.getFullYear();
-// let mm = today.getMonth() + 1; // Months start at 0!
-// let dd = today.getDate();
 
-// if (dd < 10) dd = '0' + dd;
-// if (mm < 10) mm = '0' + mm;
-
-// const formattedToday = dd + '/' + mm + '/' + yyyy;
-// document.getElementById("daily_date").innerHTML = formattedToday
-// trainer.forEach(element,i => {
-//     console.log(element['last_taken_atten'])
-//     if (element.last_taken_atten == formattedToday) {
-//         document.getElementById("daily_attendance_situ").innerHTML =" DAILY ATTENDANCE NOT TAKEN YET "
-//     }else if ((i == trainer.length-1)) {
-//         document.getElementById("daily_attendance_situ").innerHTML =" DAILY ATTENDANCE TAKEN " 
-//     }
-// })
-// });
 // localStorage.clear()
 // test data
 let tranie1 = {"ID" : 25,
@@ -94,6 +75,7 @@ function Add_traine(){
     document.getElementById("add_button").style.display = "initial";
 }
     }
+    // add new triane step two
     function Add_traine_final(){
         storege_tranies = JSON.parse(localStorage.getItem("tranies"))  
         new_tranie = {"ID":document.getElementById("new_id").value,
@@ -107,6 +89,7 @@ function Add_traine(){
     localStorage.setItem("tranies",(JSON.stringify(storege_tranies)))
     new_feed = {"traine":document.getElementById("new_name").value,
     "feddbacktext":""}
+    // make a room to add feedback
     arr1 = JSON.parse(localStorage.getItem("Salama_feedback"))||[]
     arr2 = JSON.parse(localStorage.getItem("Mona_feedback"))||[]
     arr3 = JSON.parse(localStorage.getItem("hadeel_feedback"))||[]
@@ -156,6 +139,7 @@ function Add_traine(){
         localStorage.setItem("tranies",(JSON.stringify(update_storege_tranies)))
         read_data()}
 
+            // to make attendance button for each student apper
     function abs_traine() {
 
         if (document.getElementById("remove_head").style.display == "initial"){
@@ -174,6 +158,7 @@ function Add_traine(){
             storege_tranies.map(function(tranie){
             document.getElementById(tranie.ID+"_").style.display = "initial"
             console.log(tranie.ID)})}}
+            // take attendance step two
     function take_attendence_final(i){
         storege_tranies = JSON.parse(localStorage.getItem("tranies"))
         console.log(i)
@@ -194,7 +179,7 @@ function Add_traine(){
         localStorage.setItem("tranies",JSON.stringify(update_storege_tranies) )
         
     }
-    // to add new day for all days
+    // to add new day for all days final step taking attendance
     function save_attendance(){
         update_storege_tranies = storege_tranies.map(element => {
                 pluse =(Number(element.all_days)+1);
@@ -203,18 +188,19 @@ function Add_traine(){
         localStorage.setItem("tranies",JSON.stringify(update_storege_tranies) )
          read_data()
     }
-    // change color for absence
+    // change color for absence button and text
     function change(i){
         console.log(i)
         document.getElementById(`${i}_`).innerHTML = "absensce";
         document.getElementById(`${i}_`).style.backgroundColor = "red";
     }
+    // change color for absence button and text
     function change2(i){
         console.log(i)
         document.getElementById(`${i}_`).innerHTML = "attendant";
         document.getElementById(`${i}_`).style.backgroundColor = "white";
     }
-    //
+    // edit traine step1
     function edite_traine_final(i){
         edit_row = document.getElementById(`${i}`)
         storege_tranies = JSON.parse(localStorage.getItem("tranies")) 
@@ -222,6 +208,7 @@ function Add_traine(){
         input_edit_row = `<tr><td>${i}</td><td class="hied"><input class="change" value="${storege_tranies[i-1].ID}"  type="number"id="change_id"></td><td><input class="change" value="${storege_tranies[i-1].Name}"  type="text" id="change_name"</td><td><input class="change" value="${storege_tranies[i-1]["Tasks(accomplished/missed)"]}"  type="text" id="change_task"</td><td><input class="change"  value="${storege_tranies[i-1].absence_days}"type="text" id="change_attendence"</td><td><button class="edite_save save_edite_button" id="s_${i}_" type="button" onclick="edite_traine_final2(${i})">save</button></td></tr>`
         edit_row.innerHTML = input_edit_row
     }
+        // edit traine step2
     function edite_traine_final2(i) {
         storege_tranies[i-1] = {"ID":document.getElementById("change_id").value,
         "Name":document.getElementById("change_name").value,
@@ -232,6 +219,7 @@ function Add_traine(){
         localStorage.setItem("tranies",(JSON.stringify(storege_tranies)))
         read_data()
     }
+    // move bettwen pages
     function move(ss){
         if (ss == "home") {
             window.location.href = "../homeAfter/homeAfter.html"
@@ -245,6 +233,7 @@ function Add_traine(){
             window.location.href = "../index.html"
         }
     }
+    //choise the which picture to appear
     currentuser = JSON.parse(localStorage.getItem("currentuser"))
     switch(currentuser.firstName){
     case "Mona":
@@ -261,6 +250,7 @@ function Add_traine(){
     break;
     
 }
+    //choise the which name to appear
 document.getElementById("namee").innerHTML = currentuser.firstName
 
 
