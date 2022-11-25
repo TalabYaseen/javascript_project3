@@ -191,9 +191,13 @@ function login() {
     // var newdata = x.map(data)
     var inputemail = document.getElementById("inputemail").value;
     var inputpassword = document.getElementById("inputpassword").value;
-    let arr = JSON.parse(localStorage.getItem('users')) || [];
-
+    // let arr = JSON.parse(localStorage.getItem('users'))
+    console.log(JSON.parse(localStorage.getItem('users')))
+    if(JSON.parse(localStorage.getItem('users')) == null){console.log("hi");}
+    if(JSON.parse(localStorage.getItem('users'))){
+    arr = (JSON.parse(localStorage.getItem('users')))
     arr.map(e => {
+        console.log(e.Email,"hi")
         if (e.Email == inputemail && e.Password == inputpassword) {
             console.log(`Welcome `)
 
@@ -207,7 +211,7 @@ function login() {
         }
     })
 
-}
+}}
 
 
 

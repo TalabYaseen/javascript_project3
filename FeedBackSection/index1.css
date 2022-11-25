@@ -44,7 +44,7 @@ nav:hover{
 .logo{
   text-align: center;
   display: flex;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 0px;
   padding-bottom:3rem;
 }
 
@@ -440,5 +440,11 @@ opacity: 0.8;
 
 .support #at{
   color: #efc437;
+}
+.logo img{
+  /* margin-right:5px ; */
+  width: 70px;
+  height: 70px;
+  border-radius:50%;
 }
 /* ////////// */
